@@ -34,8 +34,14 @@ void displyStudentInfo(studentPtr student){
 
 // Main functionn for the opertaion 
 int main(){
-    studentPtr newStudent=(studentPtr)malloc(sizeof(struct Student));
-    readStudentInfo(newStudent);
-    displyStudentInfo(newStudent);
+    int n;
+    printf("Enter the number of studnets :\n");
+    scanf("%d",&n);
+    
+    studentPtr newStudent=(studentPtr)malloc(sizeof(struct Student)*n);
+    for(int i=0;i<n;i++){
+    readStudentInfo(newStudent[i);
+    displyStudentInfo(newStudent[i);
+    }
     free(newStudent);
 }
