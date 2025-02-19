@@ -1,16 +1,25 @@
 #include<stdio.h>
 
-void print(int array[],int n,int i){
+void printForward(int array[],int n,int i){
    if(i==n){
        return ;
    }
    printf("%d\t",array[i]);
-   print(array,n,++i);
+   printForward(array,n,++i);
 }
 
+void printBackword(int array[],int n,int i){
+    if(i==n-1){
+        return ;
+    }
+    printBackword(array,n,++i);
+    printf("%d\t",array[i]);
+ }
 
 int main(){
     int array[10]={1,2,3,4,5,6};
-    print(array,6,0);
+    printForward(array,6,0);
+    printf("\n");
+    printBackword(array,6,-1);
     return 0;
 }
