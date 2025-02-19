@@ -16,8 +16,9 @@ void readStudentInfo(studentPtr student){
     int sum=0;
     printf("Enter the Student name : ");
     scanf("%s",student->name);
-    printf("Enter the Student Marks : ");
+    
     for(i=0;i<max_sub;i++){
+        printf("Enter the marks in %d Subject :",i+1);
         scanf("%d",&student->marks[i]);
         sum+=student->marks[i];
     }
@@ -34,14 +35,18 @@ void displyStudentInfo(studentPtr student){
 
 // Main functionn for the opertaion 
 int main(){
-    int n;
-    printf("Enter the number of studnets :\n");
-    scanf("%d",&n);
-    
-    studentPtr newStudent=(studentPtr)malloc(sizeof(struct Student)*n);
-    for(int i=0;i<n;i++){
-    readStudentInfo(newStudent[i);
-    displyStudentInfo(newStudent[i);
+    int numberofStudents;
+    printf("Enter the number of studnets :");
+    scanf("%d",&numberofStudents);
+    int i;
+    studentPtr newStudent=(studentPtr)malloc(sizeof(struct Student)*numberofStudents);
+    for(i=0;i<numberofStudents;i++){
+    printf("Enter %d student deatils \n",i+1);
+     readStudentInfo(newStudent+i);
+    }
+    printf("******************** Student marks info ********************\n");
+    for(i=0;i<numberofStudents;i++){
+    displyStudentInfo(newStudent+i);
     }
     free(newStudent);
 }
